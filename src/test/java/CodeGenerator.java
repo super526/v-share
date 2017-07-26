@@ -16,9 +16,9 @@ import static com.company.project.core.ProjectConstant.*;
  */
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/sell";
+    private static final String JDBC_URL = "jdbc:mysql://119.29.92.137:3306/sell";
     private static final String JDBC_USERNAME = "root";
-    private static final String JDBC_PASSWORD = "suztt526";
+    private static final String JDBC_PASSWORD = "wuyunjiangmysql";
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 
     private static final String PROJECT_PATH = System.getProperty("user.dir");//项目在硬盘上的基础路径
