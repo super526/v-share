@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @SpringBootApplication
 @RestController
-@MapperScan(basePackages = "com.supan.vshare.dao")
+@MapperScan(basePackages = "com.supan.vshare.mapper")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

@@ -1,6 +1,6 @@
 package com.supan.vshare.service.impl;
 
-import com.supan.vshare.dao.ProductDavMapper;
+import com.supan.vshare.mapper.ProductDavMapper;
 import com.supan.vshare.model.ProductDav;
 import com.supan.vshare.service.ProductDavService;
 import com.supan.vshare.core.AbstractService;

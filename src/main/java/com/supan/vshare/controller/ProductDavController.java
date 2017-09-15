@@ -1,11 +1,12 @@
 package com.supan.vshare.controller;
 
-import com.supan.vshare.core.Result;
-import com.supan.vshare.core.ResultGenerator;
-import com.supan.vshare.model.ProductDav;
-import com.supan.vshare.service.ProductDavService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.supan.vshare.core.Result;
+import com.supan.vshare.core.ResultGenerator;
+import com.supan.vshare.dto.request.HttpRequest;
+import com.supan.vshare.model.ProductDav;
+import com.supan.vshare.service.ProductDavService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -23,6 +24,16 @@ public class ProductDavController {
     @PostMapping
     public Result add(ProductDav productDav) {
         productDavService.save(productDav);
+        return ResultGenerator.genSuccessResult();
+    }
+    /**
+     * 批量写入商品数据
+     * @param products
+     * @return
+     */
+    @PostMapping("/save")
+    public Result save(@RequestBody HttpRequest<List<ProductDav>> products) {
+        productDavService.save(products.getData());
         return ResultGenerator.genSuccessResult();
     }
 

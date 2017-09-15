@@ -1,13 +1,14 @@
 package com.supan.vshare.model;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.persistence.*;
 
 public class Product {
     @Id
     @Column(name = "product_id")
-    private String productId;
+    private Integer productId;
 
     /**
      * 商品名称
@@ -78,14 +79,14 @@ public class Product {
     /**
      * @return product_id
      */
-    public String getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
     /**
      * @param productId
      */
-    public void setProductId(String productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 

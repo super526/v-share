@@ -1,6 +1,6 @@
 package com.supan.vshare.service.impl;
 
-import com.supan.vshare.dao.StatisticsMapper;
+import com.supan.vshare.mapper.StatisticsMapper;
 import com.supan.vshare.model.Statistics;
 import com.supan.vshare.service.StatisticsService;
 import com.supan.vshare.core.AbstractService;

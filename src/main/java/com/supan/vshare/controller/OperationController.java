@@ -1,5 +1,6 @@
 package com.supan.vshare.controller;
 
+import com.supan.vshare.common.utils.AccessRemoteIPUtil;
 import com.supan.vshare.core.Result;
 import com.supan.vshare.core.ResultGenerator;
 import com.supan.vshare.model.Operation;
@@ -9,6 +10,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -20,8 +22,12 @@ public class OperationController {
     @Resource
     private OperationService operationService;
 
-    @PostMapping
-    public Result add(Operation operation) {
+    @GetMapping("/add")
+    public Result add(@RequestParam Integer typeid, HttpServletRequest request) {
+        String ipAddress = AccessRemoteIPUtil.getIpAddress(request);
+        Operation operation = new Operation();
+        operation.setIp(ipAddress);
+        operation.setTypeid(typeid);
         operationService.save(operation);
         return ResultGenerator.genSuccessResult();
     }
