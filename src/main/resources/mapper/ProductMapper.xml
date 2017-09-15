@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.supan.vshare.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.supan.vshare.model.Product">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_url" jdbcType="VARCHAR" property="productUrl" />
+    <result column="product_channel" jdbcType="VARCHAR" property="productChannel" />
+    <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
+    <result column="product_click" jdbcType="INTEGER" property="productClick" />
+    <result column="product_desc" jdbcType="VARCHAR" property="productDesc" />
+    <result column="product_icon" jdbcType="VARCHAR" property="productIcon" />
+    <result column="product_category" jdbcType="VARCHAR" property="productCategory" />
+    <result column="product_dav_id" jdbcType="INTEGER" property="productDavId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="product_vote" jdbcType="INTEGER" property="productVote" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.supan.vshare.dao.ProductDavMapper">
+  <resultMap id="BaseResultMap" type="com.supan.vshare.model.ProductDav">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="dav_id" jdbcType="INTEGER" property="davId" />
+    <result column="dav_name" jdbcType="VARCHAR" property="davName" />
+    <result column="dav_desc" jdbcType="VARCHAR" property="davDesc" />
+    <result column="dav_tag" jdbcType="VARCHAR" property="davTag" />
+    <result column="dav_type" jdbcType="INTEGER" property="davType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+</mapper>
