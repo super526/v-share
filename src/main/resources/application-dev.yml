@@ -1,0 +1,21 @@
+# \u5F00\u53D1\u73AF\u5883\u914D\u7F6E
+# \u6570\u636E\u6E90\u914D\u7F6E\uFF0C\u8BF7\u4FEE\u6539\u4E3A\u4F60\u9879\u76EE\u7684\u5B9E\u9645\u914D\u7F6E
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://119.29.92.137:3306/vshare?characterEncoding=utf-8&useSSL=false
+      username: root
+      password: wuyunjiangmysql
+logging:
+  path: C://opt/log
+#\u65E5\u5FD7\u76F8\u5173\u914D\u7F6E
+#logging:
+#  exception-conversion-word: '%wEx'
+##  file: ${HOME}/opt/log/seed.log
+#  file: seed/opt/seed.log
+#  level:
+#    root: info
+#    org.springframework: info
+#    com.company.project: debug
+#    tk.mybatis: debug
+#  path: ${HOME}/opt/log

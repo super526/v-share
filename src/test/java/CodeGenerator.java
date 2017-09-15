@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.company.project.core.ProjectConstant.*;
+import static com.supan.vshare.core.ProjectConstant.*;
 
 /**
  * 代码生成器，根据数据表名称生成对应的Model、Mapper、Service、Controller简化开发。
  */
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
-    private static final String JDBC_URL = "jdbc:mysql://119.29.92.137:3306/sell";
+    private static final String JDBC_URL = "jdbc:mysql://119.29.92.137:3306/vshare";
     private static final String JDBC_USERNAME = "root";
     private static final String JDBC_PASSWORD = "wuyunjiangmysql";
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
@@ -31,18 +31,21 @@ public class CodeGenerator {
     private static final String PACKAGE_PATH_SERVICE_IMPL = packageConvertPath(SERVICE_IMPL_PACKAGE);//生成的Service实现存放路径
     private static final String PACKAGE_PATH_CONTROLLER = packageConvertPath(CONTROLLER_PACKAGE);//生成的Controller存放路径
 
-    private static final String AUTHOR = "CodeGenerator";//@author
-    private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
+    private static final String AUTHOR = "supan";//@author
+    private static final String DATE = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCode("product_info");
+        genCode("operation");
+        genCode("statistics");
+        genCode("product");
+        genCode("product_dav");
     }
 
     public static void genCode(String... tableNames) {
         for (String tableName : tableNames) {
             //根据需求生成，不需要的注掉，模板有问题的话可以自己修改。
-            genModelAndMapper(tableName);
-            genService(tableName);
+//            genModelAndMapper(tableName);
+//            genService(tableName);
             genController(tableName);
         }
     }
