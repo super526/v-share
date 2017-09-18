@@ -1,12 +1,19 @@
 package com.supan.vshare.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.supan.vshare.core.Result;
 import com.supan.vshare.core.ResultGenerator;
 import com.supan.vshare.dto.request.HttpRequest;
 import com.supan.vshare.model.Product;
+import com.supan.vshare.model.es.EsProduct;
+import com.supan.vshare.service.EsProductService;
 import com.supan.vshare.service.ProductService;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -20,7 +27,15 @@ import java.util.List;
 public class ProductController {
     @Resource
     private ProductService productService;
+    @Resource
+    private EsProductService esProductService;
 
+    /**
+     * 添加商品时,同步向商品索引库中添加商品数据
+     *
+     * @param product
+     * @return
+     */
     @PostMapping
     public Result add(Product product) {
         productService.save(product);
@@ -29,6 +44,7 @@ public class ProductController {
 
     /**
      * 批量写入商品数据
+     *
      * @param products
      * @return
      */
@@ -63,4 +79,30 @@ public class ProductController {
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
+
+    /***
+     * es 模糊查询商品数据
+     * @param order
+     * @param keyword
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     */
+    @GetMapping("/list")
+    public Page<EsProduct> listEsProducts(
+            @RequestParam(value = "order", required = false, defaultValue = "new") String order,
+            @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
+            @RequestParam(value = "pageIndex", required = false, defaultValue = "0") int pageIndex,
+            @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize
+    ) {
+        Page<EsProduct> page = null;
+        if (order.equals("new")) { // 最新查询
+            Sort sort = new Sort(Direction.DESC, "createTime");
+            Pageable pageable = new PageRequest(pageIndex, pageSize, sort);
+            page = esProductService.listNewestEsProducts(keyword, pageable);
+        }
+        return page;
+    }
+
+
 }

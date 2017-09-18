@@ -6,6 +6,14 @@ spring:
       url: jdbc:mysql://119.29.92.137:3306/vshare?characterEncoding=utf-8&useSSL=false
       username: root
       password: wuyunjiangmysql
+  data:
+  # 远程服务
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      properties:
+        transport:
+          tcp:
+            connect_timeout: 120s
 logging:
   path: C://opt/log
 #\u65E5\u5FD7\u76F8\u5173\u914D\u7F6E
