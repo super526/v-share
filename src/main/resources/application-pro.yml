@@ -1,0 +1,12 @@
+# \u751F\u4EA7\u73AF\u5883\u914D\u7F6E
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://119.29.92.137:3306/vshare?characterEncoding=utf-8&useSSL=false
+      username: root
+      password: wuyunjiangmysql
+
+# \u65E5\u5FD7\u914D\u7F6E
+logging:
+  config: classpath:logback.xml
+  path: ${HOME}/vshare/log

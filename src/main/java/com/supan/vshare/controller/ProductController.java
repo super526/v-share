@@ -5,10 +5,13 @@ import com.github.pagehelper.PageInfo;
 import com.supan.vshare.core.Result;
 import com.supan.vshare.core.ResultGenerator;
 import com.supan.vshare.dto.request.HttpRequest;
+import com.supan.vshare.dto.request.ProductReq;
 import com.supan.vshare.model.Product;
 import com.supan.vshare.model.es.EsProduct;
 import com.supan.vshare.service.EsProductService;
+import com.supan.vshare.service.OperationService;
 import com.supan.vshare.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -29,6 +32,8 @@ public class ProductController {
     private ProductService productService;
     @Resource
     private EsProductService esProductService;
+    @Autowired
+    private OperationService operationService;
 
     /**
      * 添加商品时,同步向商品索引库中添加商品数据
@@ -77,6 +82,12 @@ public class ProductController {
         PageHelper.startPage(page, size);
         List<Product> list = productService.findAll();
         PageInfo pageInfo = new PageInfo(list);
+        return ResultGenerator.genSuccessResult(pageInfo);
+    }
+
+    @PostMapping("/query")
+    public Result queryPageList(@RequestBody ProductReq productReq) {
+        PageInfo pageInfo  = productService.queryPageList(productReq);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
 

@@ -1,5 +1,6 @@
 package com.supan.vshare.model;
 
+import com.google.common.collect.Lists;
 import lombok.Data;
 import org.springframework.data.elasticsearch.annotations.Document;
 
@@ -7,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,7 +27,6 @@ public class Product {
      * 商品推荐大V名称
      */
     @Column(name = "product_dav_name")
-
     private String productDavName;
     /**
      * 商品链接
@@ -86,7 +87,10 @@ public class Product {
      */
     @Column(name = "product_vote")
     private Integer productVote;
-
+    public static List<String> getBaseColumns() {
+        return Lists
+                .newArrayList("productName", "productDavName", "productDesc", "productCategory");
+    }
 //    /**
 //     * @return product_id
 //     */

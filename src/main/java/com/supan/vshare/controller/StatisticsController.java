@@ -43,9 +43,9 @@ public class StatisticsController {
         return ResultGenerator.genSuccessResult(statistics);
     }
 
-    @GetMapping
-    public Result list(Integer page, Integer size) {
-        PageHelper.startPage(page, size);
+    @GetMapping("/list")
+    public Result list() {
+        PageHelper.startPage(0, 10);
         List<Statistics> list = statisticsService.findAll();
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
