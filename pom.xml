@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.grow.vshare</groupId>
-    <artifactId>seed</artifactId>
+    <artifactId>v-share</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
