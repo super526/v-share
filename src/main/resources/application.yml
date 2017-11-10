@@ -5,7 +5,7 @@ spring:
   application:
     name: seed
   profiles:
-    active: pro
+    active: dev
   # druid配置
   druid:
    driver-class-name: com.mysql.jdbc.Driver

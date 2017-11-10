@@ -7,6 +7,22 @@ public interface SeedConst {
    */
   String SYSYEM_NAME = "GSR";
   /**
+   * 匹配时间正则
+   */
+  String REGEX_DATE = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z";
+
+  String REGEX_DATE_REGISTER = "Creation Date: \\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
+  String REGEX_DATE_EXPIRY = "Registry Expiry Date: \\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
+
+  /**
+   * domain查询接口
+   */
+  String REMOTE_ACCESS_URL = "http://whois.wang/whois/?domainName=";
+  /**
+   * 匹配名称正则
+   */
+  String REGEX_NAME = "Registrant Name: .{3}";
+  /**
    * 默认门店代码
    */
   String DEFAULT_SITE_CODE = "SITE888";
@@ -65,7 +81,7 @@ public interface SeedConst {
   /**
    * 价格对比excel导出模版名称
    */
-  String REPORT_EXCEL_TEMPLATE = "GMV1.0_TEMPLATE_REPORT";
+  String REPORT_EXCEL_TEMPLATE = "DOMAIN_TEMPLATE_REPORT";
 
   Integer RECIEVE_STATUS_INIT = 0;
 
@@ -73,5 +89,5 @@ public interface SeedConst {
 
   Integer RECIEVE_STATUS_PROCESS = 2;
 
-
+  String DOMAIN_EXCEL_TEMPLATE = "DOMAIN_TEMPLATE_REPORT.xlsx" ;
 }
