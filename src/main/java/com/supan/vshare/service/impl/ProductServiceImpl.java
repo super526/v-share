@@ -8,10 +8,7 @@ import com.supan.vshare.mapper.ProductMapper;
 import com.supan.vshare.mapper.StatisticsMapper;
 import com.supan.vshare.model.Product;
 import com.supan.vshare.model.Statistics;
-import com.supan.vshare.model.es.EsProduct;
-import com.supan.vshare.service.EsProductService;
 import com.supan.vshare.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
@@ -28,8 +25,8 @@ import java.util.List;
 public class ProductServiceImpl extends AbstractService<Product> implements ProductService {
     @Resource
     private ProductMapper productMapper;
-    @Autowired
-    private EsProductService esProductService;
+//    @Autowired
+//    private EsProductService esProductService;
     @Resource
     private StatisticsMapper mapper;
     @Override
@@ -39,17 +36,17 @@ public class ProductServiceImpl extends AbstractService<Product> implements Prod
 
     @Override
     public void save(List<Product> products) {
-        products.forEach(item -> {
-            EsProduct esProduct = new EsProduct(item);
-            //           BeanUtils.copyProperties(item,esProduct);
-//            esProduct.setProductId(8888);
-//            esProduct.setProductNm(item.getProductName());
-//            esProduct.setProductDavNm(item.getProductDavName());
-//            esProduct.setProductDesc(item.getProductDesc());
-//            esProduct.setProductCat(item.getProductCategory());
-            /**添加商品数据到--es索引库*/
-            esProductService.updateEsProduct(esProduct);
-        });
+//        products.forEach(item -> {
+//            EsProduct esProduct = new EsProduct(item);
+//            //           BeanUtils.copyProperties(item,esProduct);
+////            esProduct.setProductId(8888);
+////            esProduct.setProductNm(item.getProductName());
+////            esProduct.setProductDavNm(item.getProductDavName());
+////            esProduct.setProductDesc(item.getProductDesc());
+////            esProduct.setProductCat(item.getProductCategory());
+//            /**添加商品数据到--es索引库*/
+////            esProductService.updateEsProduct(esProduct);
+//        });
         super.save(products);
     }
 

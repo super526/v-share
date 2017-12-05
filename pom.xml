@@ -32,11 +32,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-            <version>1.5.4.Release</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
+            <!--<version>1.5.4.Release</version>-->
+        <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
         <dependency>
             <groupId>net.java.dev.jna</groupId>
@@ -95,6 +95,11 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.1.2</version>
         </dependency>
+        <!--日志相关-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -141,6 +146,11 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
         </dependency>
         <!--Swagger开源的Starter-->
         <dependency>

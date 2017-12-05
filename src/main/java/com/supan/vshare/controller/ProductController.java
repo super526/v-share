@@ -7,16 +7,9 @@ import com.supan.vshare.core.ResultGenerator;
 import com.supan.vshare.dto.request.HttpRequest;
 import com.supan.vshare.dto.request.ProductReq;
 import com.supan.vshare.model.Product;
-import com.supan.vshare.model.es.EsProduct;
-import com.supan.vshare.service.EsProductService;
 import com.supan.vshare.service.OperationService;
 import com.supan.vshare.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -30,8 +23,8 @@ import java.util.List;
 public class ProductController {
     @Resource
     private ProductService productService;
-    @Resource
-    private EsProductService esProductService;
+//    @Resource
+//    private EsProductService esProductService;
     @Autowired
     private OperationService operationService;
 
@@ -99,21 +92,21 @@ public class ProductController {
      * @param pageSize
      * @return
      */
-    @GetMapping("/list")
-    public Page<EsProduct> listEsProducts(
-            @RequestParam(value = "order", required = false, defaultValue = "new") String order,
-            @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
-            @RequestParam(value = "pageIndex", required = false, defaultValue = "0") int pageIndex,
-            @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize
-    ) {
-        Page<EsProduct> page = null;
-        if (order.equals("new")) { // 最新查询
-            Sort sort = new Sort(Direction.DESC, "createTime");
-            Pageable pageable = new PageRequest(pageIndex, pageSize, sort);
-            page = esProductService.listNewestEsProducts(keyword, pageable);
-        }
-        return page;
-    }
+//    @GetMapping("/list")
+//    public Page<EsProduct> listEsProducts(
+//            @RequestParam(value = "order", required = false, defaultValue = "new") String order,
+//            @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
+//            @RequestParam(value = "pageIndex", required = false, defaultValue = "0") int pageIndex,
+//            @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize
+//    ) {
+//        Page<EsProduct> page = null;
+//        if (order.equals("new")) { // 最新查询
+//            Sort sort = new Sort(Direction.DESC, "createTime");
+//            Pageable pageable = new PageRequest(pageIndex, pageSize, sort);
+//            page = esProductService.listNewestEsProducts(keyword, pageable);
+//        }
+//        return page;
+//    }
 
 
 }

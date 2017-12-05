@@ -2,7 +2,6 @@ package com.supan.vshare.model;
 
 import com.google.common.collect.Lists;
 import lombok.Data;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Document(indexName = "product", type = "product")
+//@Document(indexName = "product", type = "product")
 public class Product {
     @Id
     @Column(name = "product_id")

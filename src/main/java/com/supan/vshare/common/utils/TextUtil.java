@@ -1,6 +1,6 @@
 package com.supan.vshare.common.utils;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 文字处理工具类。

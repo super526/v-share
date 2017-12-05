@@ -33,10 +33,16 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
-# 日志配置
+# LOG 日志配置
 logging:
   config: classpath:logback.xml
-  path: C://opt/log/
+  path: ${HOME}/seed/log
+  level:
+    root: info
+    org.springframework: info
+    com.supan.vshare: info
+    tk.mybatis: debug
+    org.apache.ibatis: debug
 #logging:
 #    file: /opt/log/seed.log
 #    config: classpath:logback.xml
@@ -46,7 +52,7 @@ logging:
 #      com.supan.vshare: debug
 #      tk.mybatis: debug
 #      org.apache.ibatis: debug
-#    path: /opt/log/
+#    path: C:/opt/log/
 #  swagger:
 #    title: spring-boot-starter-swagger
 #    description: Starter for swagger 3.x

@@ -1,19 +1,23 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <!--控制台日志输出-->
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
     <logger name="org.springframework.kafka" level="DEBUG"/>
     <logger name="org.springframework.kafka.listener" level="INFO"/>
     <logger name="org.springframework" level="ERROR"/>
     <logger name="com.supan.vshare" level="DEBUG"/>
     <logger name="com.supan.vshare.mapper" level="DEBUG"/>
-
     <!--<springProperty scope="context" name="logName" source="spring.application.name"/>-->
+    <property name="logPath" value="${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}" />
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
     <!--<springProperty scope="context" name="logPath" source="logging.path"/>-->
+    <!-- 默认日志文件分割配置 -->​
     <appender name="CAP_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/${logName}.log</file>
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
-        <file>${logPath}/${logName}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${logPath}/${logName}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
@@ -21,7 +25,7 @@
             <totalSizeCap>20GB</totalSizeCap>
         </rollingPolicy>
     </appender>
-    <root level="ERROR">
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="CAP_FILE"/>
     </root>

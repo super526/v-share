@@ -20,7 +20,8 @@ domain:
 #          tcp:
 #            connect_timeout: 120s
 logging:
-  path: C://opt/log
+#  path: C:/opt/log
+   path: seed/target
 #/u65E5/u5FD7/u76F8/u5173/u914D/u7F6E
 #logging:
 #  exception-conversion-word: '%wEx'
