@@ -39,6 +39,7 @@ import java.util.stream.Collectors;
 @RestController
 public class DomainController {
 
+    private String a = "h";
     private static final int DEFAULT_SHEET_IDX = 0;
     private static final int STYLE_ROW_INDEX = 2;
     private static final int SHEET_ROW_INDEX = 0;
